@@ -1,0 +1,68 @@
+---
+const faqs = [
+  {
+    q: "Is Habanero Cafe good for a large group or party?",
+    a: "Yes! We offer full catering for banquets, weddings, work luncheons, and special events. Our Taco Bar (min. 100 tacos), Fajita, Enchilada, and Mexicanos packages can feed any size crowd. Contact us to arrange delivery and setup."
+  },
+  {
+    q: "Do you have outdoor seating?",
+    a: "We are a cozy, family-owned dine-in restaurant. For current seating details, give us a call at (512) 416-0443."
+  },
+  {
+    q: "What are your hours?",
+    a: "We're open every day — Monday through Sunday, 7:00 am to 3:00 pm. Last seating is at 2:30 pm. Lunch specials run Monday–Friday, 11am–3pm."
+  },
+  {
+    q: "Do you serve breakfast?",
+    a: "Yes — we open at 7am daily and serve a full breakfast menu including Huevos Rancheros, Machacado plates, breakfast tacos, and more. Plates come with beans, potato, and tortillas."
+  },
+  {
+    q: "What are the spiciest dishes on the menu?",
+    a: "Anything marked 🌶️🌶️ is very spicy — this includes Beef or Chicken Fajita Ranchera, Steak Ranchero, Shrimp Ranchero, and Fish Ranchero. Single 🌶️ means spicy but more manageable."
+  },
+  {
+    q: "Do you offer vegetarian or meatless options?",
+    a: "Yes — we offer Grilled Veggie tacos, gorditas, and tortas (filled with poblano, tomato, zucchini, mushrooms, and onion), as well as Grilled Veggie Enchiladas and a bean tostada in some combos."
+  },
+  {
+    q: "Can I order food to take home or freeze?",
+    a: "Absolutely. We sell meats by the pound to-go (Libres de Carne) — options include Barbacoa, Carnitas, Carne Guisada, Chicken Fajita, Beef Fajita, Tripas, and Picadillo. Add a Special for +$3.00 and get tortillas, salsa, and pico."
+  },
+  {
+    q: "Do you deliver on weekends?",
+    a: "No — catering delivery is not available on weekends. We are a small, family-operated restaurant with minimal staff. Please plan your catering orders for weekdays."
+  },
+  {
+    q: "How far in advance should I book catering?",
+    a: "We recommend reaching out as early as possible, especially for large events. Email us at habaneromexicancafe@gmail.com — we typically respond within 48–72 hours."
+  },
+  {
+    q: "How long has Habanero Cafe been open?",
+    a: "Since 1997 — over 27 years. The restaurant carries on the legacy of 'Dos Hermanos,' founded by the Ibarra family. Every recipe has been passed down and kept exactly as the original."
+  },
+];
+---
+
+<section id="faq" class="py-24 bg-stone-900">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="text-orange-400 text-sm font-bold uppercase tracking-widest mb-3">Good to Know</p>
+      <h2 class="text-4xl sm:text-5xl font-bold text-stone-100 mb-4">Frequently Asked Questions</h2>
+      <p class="text-stone-400">Everything you need to know before you visit.</p>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="group bg-stone-800 border border-stone-700 rounded-2xl overflow-hidden">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer text-stone-100 font-bold hover:text-orange-400 transition-colors list-none">
+            <span>{faq.q}</span>
+            <span class="text-orange-400 text-xl flex-shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+          </summary>
+          <div class="px-6 pb-5 text-stone-400 leading-relaxed text-sm border-t border-stone-700 pt-4">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

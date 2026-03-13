@@ -1,0 +1,117 @@
+---
+const packages = [
+  {
+    name: "The Taco Bar",
+    price: "$5.95",
+    unit: "per taco",
+    minimum: "Minimum 100 tacos",
+    includes: ["Choice of meat", "Sour cream", "Cheese", "Lettuce", "Tomatoes", "Pico de gallo", "Guacamole", "Chips & Salsa"],
+    accent: "bg-orange-600",
+  },
+  {
+    name: "The Fajitas",
+    price: "$20.50",
+    unit: "per person",
+    minimum: "Beef or Chicken Fajitas",
+    includes: ["Rice", "Choice of beans", "Pico de Gallo", "Sour cream or cheese", "Tortillas", "Chips and Salsa"],
+    accent: "bg-red-700",
+    note: "Also available as Rancheras (spicy kick)",
+  },
+  {
+    name: "The Enchiladas",
+    price: "$13.25",
+    unit: "per person",
+    minimum: "2 enchiladas per person",
+    includes: ["Roja or Verde sauce", "Beef, Chicken, Cheese, or Veggie", "Rice", "Beans", "Pico de Gallo", "Chips and Salsa"],
+    accent: "bg-orange-700",
+  },
+  {
+    name: "The Mexicanos",
+    price: "$16.75",
+    unit: "per person",
+    minimum: "Carnitas or Barbacoa",
+    includes: ["Rice", "Beans", "Pico de Gallo", "Sour cream or Cheese", "Tortillas", "Chips and Salsa"],
+    accent: "bg-stone-700",
+  },
+];
+---
+<section id="catering" class="py-24 bg-[#2d2520]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="text-orange-400 text-sm font-bold uppercase tracking-widest mb-3">Catering</p>
+      <h2 class="text-4xl sm:text-5xl font-bold text-stone-100 mb-4">
+        Feed Your Crowd
+      </h2>
+      <p class="text-stone-400 text-lg max-w-2xl mx-auto">
+        From weddings and banquets to work luncheons and special events — we bring Habanero's authentic flavors to your gathering.
+      </p>
+    </div>
+
+    <!-- Event types -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      {["Banquets", "Weddings", "Work Luncheons", "Special Events"].map((event) => (
+        <span class="bg-stone-800 text-orange-300 border border-stone-600 px-4 py-2 rounded-full text-sm font-medium">
+          {event}
+        </span>
+      ))}
+    </div>
+
+    <!-- Packages grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      {packages.map((pkg) => (
+        <div class="rounded-2xl border border-stone-700 overflow-hidden hover:border-orange-600 transition-colors">
+          <div class={`${pkg.accent} p-4`}>
+            <h3 class="text-white font-bold text-lg">{pkg.name}</h3>
+            <p class="text-white/80 text-sm">{pkg.minimum}</p>
+          </div>
+          <div class="bg-stone-800 p-5">
+            <div class="flex items-baseline gap-1 mb-4">
+              <span class="text-3xl font-bold text-stone-100">{pkg.price}</span>
+              <span class="text-stone-400 text-sm">{pkg.unit}</span>
+            </div>
+            <ul class="space-y-1.5">
+              {pkg.includes.map((item) => (
+                <li class="flex items-center gap-2 text-stone-400 text-sm">
+                  <span class="text-orange-400 font-bold">·</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            {pkg.note && <p class="mt-3 text-xs text-orange-400 italic">{pkg.note}</p>}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Add-ons + Note -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-stone-800 rounded-2xl p-6 border border-stone-700">
+        <h4 class="font-bold text-stone-100 mb-3">Add-Ons</h4>
+        <ul class="space-y-2 text-stone-300 text-sm">
+          <li class="flex justify-between">
+            <span>Small pan of Queso or Guacamole <span class="text-stone-500">(15–20 people)</span></span>
+            <span class="font-semibold text-orange-400">$58.00</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Large pan of Queso or Guacamole <span class="text-stone-500">(75–100 people)</span></span>
+            <span class="font-semibold text-orange-400">$180.00</span>
+          </li>
+        </ul>
+        <p class="text-stone-500 text-xs mt-2">*Includes more chips and salsa</p>
+      </div>
+
+      <div class="bg-stone-800 rounded-2xl p-6 border border-stone-700">
+        <h4 class="font-bold text-stone-100 mb-3">Delivery &amp; Setup</h4>
+        <p class="text-stone-400 text-sm leading-relaxed">
+          We are a small restaurant with minimal staff and not a full-service catering company. Please contact us regarding delivery and setup availability.
+        </p>
+        <p class="text-red-400 text-sm font-medium mt-3">
+          ⚠ We do not deliver on weekends.
+        </p>
+        <p class="text-stone-500 text-sm mt-2">
+          Want something different? Email us and we'll see what we can do!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+const specials = [
+  {
+    day: "Monday",
+    items: [
+      { name: "Chicken Fajitas", price: "$10.95" },
+      { name: "(2) Crispy Taco Plate", price: "$8.95" },
+    ],
+  },
+  {
+    day: "Tuesday",
+    items: [
+      { name: "Steak Ranchero", price: "$12.95" },
+      { name: "(2) Enchiladas Plate", price: "$9.95", note: "Roja or Verde · Beef, Chicken, or Cheese" },
+    ],
+  },
+  {
+    day: "Wednesday",
+    items: [
+      { name: "Chicken Fajita Rancheras 🌶️", price: "$10.95", note: "Very spicy" },
+      { name: "Beef Fajita Rancheras 🌶️🌶️", price: "$13.95", note: "Very spicy" },
+    ],
+  },
+  {
+    day: "Thursday",
+    items: [
+      { name: "Chuletas Rancheras 🌶️", price: "$12.95", note: "Spicy" },
+      { name: "Carne Guisada", price: "$12.95" },
+    ],
+  },
+  {
+    day: "Friday",
+    items: [
+      { name: "Picadillo Plate", price: "$10.95" },
+      { name: "Chicken Mole", price: "$10.95" },
+    ],
+  },
+];
+---
+<section id="specials" class="py-24 bg-[#2d2520] text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="text-orange-400 text-sm font-bold uppercase tracking-widest mb-3">Mon – Fri · 11am – 3pm</p>
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">Daily Lunch Specials</h2>
+      <p class="text-stone-400 max-w-md mx-auto">
+        All plates come with rice, beans &amp; pico de gallo. No substitutions.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      {specials.map((s) => (
+        <div class="bg-stone-800 rounded-2xl p-5 border border-stone-600 hover:border-orange-500 transition-colors">
+          <p class="text-orange-400 font-bold text-xs uppercase tracking-widest mb-4 pb-3 border-b border-stone-600">
+            {s.day}
+          </p>
+          <div class="space-y-4">
+            {s.items.map((item) => (
+              <div>
+                <div class="flex items-start justify-between gap-2">
+                  <p class="font-bold text-stone-100 text-sm leading-snug">{item.name}</p>
+                  <span class="text-orange-400 font-bold text-sm whitespace-nowrap">{item.price}</span>
+                </div>
+                {item.note && <p class="text-stone-500 text-xs mt-0.5">{item.note}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="text-center text-stone-500 text-sm mt-8">*Monday through Friday only</p>
+  </div>
+</section>

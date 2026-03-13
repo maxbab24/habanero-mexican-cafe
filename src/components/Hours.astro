@@ -1,0 +1,33 @@
+---
+const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+---
+<section id="hours" class="py-24 bg-[#2d2520] text-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="text-orange-400 text-sm font-bold uppercase tracking-widest mb-3">Hours</p>
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">Come Visit Us</h2>
+      <p class="text-stone-400">We stop seating 30 minutes before closing.</p>
+    </div>
+
+    <div class="bg-stone-800 rounded-3xl p-8 max-w-lg mx-auto border border-stone-600">
+      <div class="divide-y divide-stone-600">
+        {days.map((day) => (
+          <div class="flex justify-between items-center py-3.5">
+            <span class="text-stone-300 font-bold">{day}</span>
+            <span class="text-orange-400 font-bold">7:00 am – 3:00 pm</span>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 pt-6 border-t border-stone-600 text-center">
+        <p class="text-stone-400 text-sm">Last seating at 2:30 pm</p>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <div class="inline-block bg-orange-500/10 border border-orange-500/30 rounded-2xl px-6 py-4">
+        <p class="text-orange-300 font-bold">Lunch Specials: Mon–Fri · 11am–3pm</p>
+        <p class="text-stone-400 text-sm mt-1">All plates with rice, beans &amp; pico</p>
+      </div>
+    </div>
+  </div>
+</section>

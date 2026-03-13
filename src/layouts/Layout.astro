@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Habanero Mexican Cafe — Authentic Mexican food in Austin, TX since 1997. Family-owned. Tacos, fajitas, enchiladas, breakfast, and catering. Open daily 7am–3pm." />
+    <meta name="keywords" content="Mexican food Austin TX, tacos Austin, beef fajitas Austin, Mexican catering Austin, breakfast tacos Austin, Habanero Cafe, authentic Mexican restaurant" />
+    <meta property="og:title" content="Habanero Mexican Cafe | Authentic Mexican Food in Austin, TX" />
+    <meta property="og:description" content="Family-owned Mexican restaurant in Austin since 1997. Tacos, fajitas, enchiladas, breakfast, and catering. Open daily 7am–3pm." />
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:locale" content="en_US" />
+    <title>{title}</title>
+    <script type="application/ld+json">{JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Habanero Mexican Cafe",
+      "description": "Family-owned authentic Mexican restaurant in Austin, TX since 1997. Serving tacos, fajitas, enchiladas, breakfast plates, and catering.",
+      "url": "https://habaneromexicancafe.com",
+      "telephone": "+15124160443",
+      "email": "habaneromexicancafe@gmail.com",
+      "priceRange": "$$",
+      "servesCuisine": ["Mexican", "Tex-Mex"],
+      "hasMenu": "https://habaneromexicancafe.com/#menu",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "501 W. Oltorf St",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "postalCode": "78704",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.2396,
+        "longitude": -97.7608
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "15:00"
+        }
+      ],
+      "sameAs": ["https://www.facebook.com/108076339180"],
+      "foundingDate": "1997",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Cash, Credit Card",
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Dine-in", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Takeout", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Catering", "value": true}
+      ]
+    })}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-stone-900 text-stone-100 antialiased">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  body { font-family: 'Lato', sans-serif; }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+  html { scroll-behavior: smooth; }
+</style>

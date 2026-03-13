@@ -1,0 +1,320 @@
+---
+const sections = [
+  {
+    id: "tacos",
+    categories: [
+      { name: "Tacos", note: "Pico upon request", price: "$4.00+" },
+      { name: "Gorditas", note: "Beans, lettuce, tomato, cheese", price: "$7.50+" },
+      { name: "Tortas", note: "Beans, lettuce, tomato, cheese", price: "$7.50+" },
+    ],
+    meats: [
+      { name: "Beef Fajita" },
+      { name: "Beef Fajita Ranchera 🌶️🌶️", note: "Jalapeño, tomato, onion — very spicy" },
+      { name: "Chicken Fajita", note: "Bell pepper and onion" },
+      { name: "Chicken Fajita Ranchera 🌶️🌶️", note: "Jalapeño, tomato, onion — very spicy" },
+      { name: "Chicharron" },
+      { name: "Grilled Veggie", note: "Poblano, tomato, zucchini, mushrooms, onion" },
+      { name: "Carne Guisada" },
+      { name: "Picadillo" },
+      { name: "Tripas" },
+      { name: "Barbacoa" },
+      { name: "Carne Asada", note: "Grilled onion" },
+      { name: "Al Pastor" },
+      { name: "Shrimp Ranchero 🌶️🌶️", note: "Jalapeño, tomato, onion — very spicy", extra: "+$0.50" },
+      { name: "Fish Ranchero 🌶️🌶️", note: "Jalapeño, tomato, onion — very spicy", extra: "+$0.50" },
+    ],
+    addons: [
+      { name: "Guacamole", price: "$0.75" },
+      { name: "Bacon", price: "$0.75" },
+      { name: "Sausage", price: "$0.75" },
+      { name: "Potato", price: "$0.50" },
+      { name: "Sour Cream", price: "$0.50" },
+      { name: "Beans", price: "$0.50" },
+      { name: "Cheese", price: "$0.50" },
+    ],
+  },
+];
+
+const platos = [
+  { name: "Flauta Plate", price: "$13.95", desc: "2 Crispy corn tortillas filled with ground beef or chicken, served with guac and sour cream" },
+  { name: "Chile Relleno Plate", price: "$16.95", desc: "Big poblano pepper stuffed with ground beef, chicken or cheese. Fried in a special egg batter with salsa ranchera" },
+  { name: "Picadillo Plate", price: "$13.95", desc: "2 Crispy corn tortillas filled with ground beef or chicken, served with guac and sour cream" },
+  { name: "Catfish Ranchero", price: "$18.95", desc: "Grilled and blackened fillet topped with grilled onions, jalapeños, and tomatoes" },
+  { name: "Gordita Plate", price: "$14.95", desc: "1 Gordita filled with your choice of filling (Fajita, Asado, Shrimp, Fish +$1.00)" },
+  { name: "Shrimp Ranchero", price: "$18.95", desc: "Grilled and blackened shrimp mixed with jalapeños, tomatoes, and onions" },
+  { name: "Taco Plate", price: "$14.95", desc: "2 Tacos filled with your choice of filling (Fajita, Asado, Shrimp, Fish +$1.00)" },
+  { name: "Barbacoa Plate", price: "$15.95", desc: "Mexican style shredded beef" },
+  { name: "Burrito Plate", price: "$14.95", desc: "2 Mini burritos with your choice of filling, topped with white cheese (Fajita, Asado, Shrimp, Fish +$1.00)" },
+  { name: "Carne Guisada Plate", price: "$15.95", desc: "Tender beef chunks in a special gravy" },
+  { name: "Chile Colorado", price: "$15.95", desc: "Tender pork chunks cooked in special red chile sauce" },
+  { name: "Carnitas Plate", price: "$15.95", desc: "Tender chunks of pork with grilled onions on top" },
+];
+
+const specialties = [
+  { name: "Beef Fajitas", price: "$19.95", desc: "Tender strips of skirt steak over grilled onions, bell peppers, tomatoes" },
+  { name: "Beef Fajita Ranchera 🌶️🌶️", price: "$19.95", desc: "Same as fajitas but with jalapeños, tomatoes, onions — very spicy" },
+  { name: "Carne Asada", price: "$19.95", desc: "Skirt steak served with jalapeños and onions" },
+  { name: "Chicken Fajitas", price: "$18.95", desc: "Grilled chicken breast strips with grilled onions, bell peppers, tomatoes" },
+  { name: "Chicken Fajita Ranchera 🌶️🌶️", price: "$18.95", desc: "Grilled chicken breast strips with jalapeños, tomatoes, onions — very spicy" },
+  { name: "Steak Ranchero 🌶️🌶️", price: "$19.95", desc: "Skirt steak with grilled jalapeños, tomatoes, onion — very spicy" },
+  { name: "Chuleta Ranchera 🌶️", price: "$19.95", desc: "Pork chop ranchero style" },
+  { name: "Tripas Plate", price: "$18.95", desc: "Grilled beef tripe" },
+];
+
+const enchiladas = [
+  { name: "Supremas Enchiladas", desc: "2 chicken covered in our salsa roja and white cheese" },
+  { name: "Regular Enchiladas", desc: "2 beef, chicken or cheese, covered in salsa roja and cheddar cheese" },
+  { name: "Verde Enchiladas", desc: "2 beef, chicken or cheese, covered in salsa verde and cheese" },
+  { name: "Grilled Veggie Enchiladas", desc: "Filled with our grilled veggies, no roja or verde" },
+];
+
+const combos = [
+  { name: "Combo #1", desc: "1 enchilada, 1 crispy beef taco, 1 bean tostada" },
+  { name: "Combo #2", desc: "3 enchiladas, 2 crispy beef tacos" },
+  { name: "Combo #3", desc: "1 flauta, 1 crispy beef taco, 1 bean tostada" },
+  { name: "Combo #4", desc: "1 enchilada, 2 crispy beef tacos" },
+];
+
+const texmex = [
+  { name: "Nikki Wiki", price: "$6.95", desc: "1 crispy beef taco, side of rice, side of queso" },
+  { name: "Zach Attack", price: "$15.25", desc: "2 tacos filled with your choice of meat, topped with queso, side of rice, beans, pico" },
+  { name: "Habanero Burrito", price: "$15.25", desc: "Large flour tortilla with your choice of meat, covered with salsa ranchera, topped with queso" },
+  { name: "El Gringo Burrito", price: "$15.25", desc: "Large flour tortilla with your choice of meat, covered in queso. Fajita, Asado, Shrimp, Fish +$1.00" },
+];
+
+const botanas = [
+  { name: "Nachos Regular", price: "$8.25", desc: "Refried beans & cheese" },
+  { name: "Chips and Salsa", price: "$5.25" },
+  { name: "Nachos Supreme", price: "$10.55" },
+  { name: "Chile Con Queso", price: "$5.55" },
+  { name: "Nachos Habanero", price: "$12.95", desc: "Chicken fajita nachos covered in chile con queso" },
+  { name: "Quesadillas Habanero", price: "$12.95", desc: "Beef or chicken quesadilla covered in our chile con queso sauce" },
+];
+
+const breakfast = [
+  { name: "*El Patron", price: "$13.95", desc: "2 fried eggs served with salsa" },
+  { name: "*Deluxe Ranchero", price: "$13.95", desc: "3 over easy eggs topped with queso ranchero" },
+  { name: "*Huevos Gringos", price: "$13.95", desc: "2 over easy eggs topped with queso ranchero" },
+  { name: "Chori Midas", price: "$13.95", desc: "Chorizo with crispy tortilla, egg, cheese, jalapeños, tomato, onion" },
+  { name: "Machacado Plate", price: "$13.95", desc: "Shredded dried beef, egg, jalapeño, tomato, onion" },
+  { name: "Midas Plate", price: "$11.50", desc: "Crispy tortilla filled with egg, cheese, jalapeños, tomato, onion" },
+  { name: "Huevos con Tocino", price: "$10.50", desc: "2 eggs scrambled with bacon" },
+  { name: "Huevos con Chorizo", price: "$10.50", desc: "2 eggs scrambled with chorizo" },
+  { name: "Huevos Ala Mexicana", price: "$9.25", desc: "2 eggs scrambled Mexican style" },
+  { name: "*Huevos Rancheros", price: "$13.95", desc: "2 fried eggs topped with salsa ranchera" },
+];
+
+const toGo = [
+  { name: "Barbacoa", price: "$16.00" },
+  { name: "Carnitas", price: "$16.00" },
+  { name: "Carne Guisada", price: "$16.00" },
+  { name: "Chicken Fajita", price: "$20.00" },
+  { name: "Tripas", price: "$23.00" },
+  { name: "Picadillo", price: "$14.00" },
+  { name: "Beef Fajita", price: "$23.00" },
+];
+---
+
+<section id="menu" class="py-24 bg-stone-900 text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-16">
+      <p class="text-orange-400 text-sm font-bold uppercase tracking-widest mb-3">Full Menu</p>
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">Something for Everyone</h2>
+      <p class="text-stone-400 text-lg">Dine-in · Take-out · Catering</p>
+    </div>
+
+    <!-- Tacos / Gorditas / Tortas -->
+    <div class="mb-16">
+      <div class="flex flex-wrap gap-4 mb-8">
+        {sections[0].categories.map((cat) => (
+          <div class="bg-red-700 rounded-2xl px-6 py-4 flex-1 min-w-[160px] text-center">
+            <p class="font-bold text-lg">{cat.name}</p>
+            <p class="text-red-200 text-sm">{cat.note}</p>
+            <p class="text-2xl font-bold mt-1 text-orange-300">{cat.price}</p>
+          </div>
+        ))}
+      </div>
+      <h3 class="text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">Choose Your Meat</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+        {sections[0].meats.map((meat) => (
+          <div class="bg-stone-800 rounded-xl px-4 py-3 flex items-start justify-between gap-2">
+            <div>
+              <p class="font-bold text-stone-100 text-sm">{meat.name}</p>
+              {meat.note && <p class="text-stone-400 text-xs mt-0.5">{meat.note}</p>}
+            </div>
+            {meat.extra && <span class="text-orange-400 text-xs font-bold whitespace-nowrap">{meat.extra}</span>}
+          </div>
+        ))}
+      </div>
+      <div class="bg-stone-800 rounded-2xl p-5">
+        <p class="text-orange-400 text-xs font-bold uppercase tracking-widest mb-3">Add-Ons</p>
+        <div class="flex flex-wrap gap-3">
+          {sections[0].addons.map((a) => (
+            <span class="bg-stone-600 text-stone-300 text-sm px-3 py-1.5 rounded-full">
+              {a.name} <span class="text-orange-400 font-bold">{a.price}</span>
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-stone-700 mb-16" />
+
+    <!-- Botanas -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold mb-1">Botanas</h3>
+      <p class="text-stone-400 text-sm mb-6">Appetizers &amp; Starters</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {botanas.map((item) => (
+          <div class="bg-stone-800 rounded-xl p-4 flex justify-between gap-3">
+            <div>
+              <p class="font-bold text-stone-100">{item.name}</p>
+              {item.desc && <p class="text-stone-400 text-sm mt-0.5">{item.desc}</p>}
+            </div>
+            <span class="text-orange-400 font-bold whitespace-nowrap">{item.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="border-stone-700 mb-16" />
+
+    <!-- Platos de Casa -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold mb-1">Platos de Casa</h3>
+      <p class="text-stone-400 text-sm mb-6">All plates served with rice, beans &amp; pico</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {platos.map((item) => (
+          <div class="bg-stone-800 rounded-xl p-4 flex justify-between gap-3">
+            <div>
+              <p class="font-bold text-stone-100">{item.name}</p>
+              <p class="text-stone-400 text-sm mt-0.5">{item.desc}</p>
+            </div>
+            <span class="text-orange-400 font-bold whitespace-nowrap">{item.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="border-stone-700 mb-16" />
+
+    <!-- Specialties -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold mb-1">Specialties</h3>
+      <p class="text-stone-400 text-sm mb-6">All plates served with rice, charro beans &amp; pico</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {specialties.map((item) => (
+          <div class="bg-stone-800 rounded-xl p-4 flex justify-between gap-3">
+            <div>
+              <p class="font-bold text-stone-100">{item.name}</p>
+              <p class="text-stone-400 text-sm mt-0.5">{item.desc}</p>
+            </div>
+            <span class="text-orange-400 font-bold whitespace-nowrap">{item.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="border-stone-700 mb-16" />
+
+    <!-- Enchiladas + Combos + Tex Mex -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+      <div>
+        <h3 class="text-2xl font-bold mb-1">Enchiladas</h3>
+        <p class="text-stone-400 text-sm mb-6">Includes rice, beans &amp; pico · <span class="text-orange-400 font-bold">$12.95</span></p>
+        <div class="space-y-3">
+          {enchiladas.map((item) => (
+            <div class="bg-stone-800 rounded-xl p-4">
+              <p class="font-bold text-stone-100">{item.name}</p>
+              <p class="text-stone-400 text-sm mt-0.5">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold mb-1">Combos</h3>
+        <p class="text-stone-400 text-sm mb-6">Includes rice &amp; beans · <span class="text-orange-400 font-bold">$14.25</span></p>
+        <div class="space-y-3">
+          {combos.map((item) => (
+            <div class="bg-stone-800 rounded-xl p-4">
+              <p class="font-bold text-stone-100">{item.name}</p>
+              <p class="text-stone-400 text-sm mt-0.5">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="text-2xl font-bold mt-10 mb-6">Tex Mex Specialties</h3>
+        <div class="space-y-3">
+          {texmex.map((item) => (
+            <div class="bg-stone-800 rounded-xl p-4 flex justify-between gap-3">
+              <div>
+                <p class="font-bold text-stone-100">{item.name}</p>
+                <p class="text-stone-400 text-sm mt-0.5">{item.desc}</p>
+              </div>
+              <span class="text-orange-400 font-bold whitespace-nowrap">{item.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-stone-700 mb-16" />
+
+    <!-- Breakfast -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold mb-1">Breakfast</h3>
+      <p class="text-stone-400 text-sm mb-6">All plates include beans, potato &amp; tortillas · *served with salsa</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {breakfast.map((item) => (
+          <div class="bg-stone-800 rounded-xl p-4 flex justify-between gap-3">
+            <div>
+              <p class="font-bold text-stone-100">{item.name}</p>
+              <p class="text-stone-400 text-sm mt-0.5">{item.desc}</p>
+            </div>
+            <span class="text-orange-400 font-bold whitespace-nowrap">{item.price}</span>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 bg-stone-800 rounded-2xl p-5">
+        <p class="text-orange-400 text-xs font-bold uppercase tracking-widest mb-3">Breakfast à la carte</p>
+        <div class="flex flex-wrap gap-3 text-sm text-stone-300">
+          {["Potato & Egg", "Bacon & Egg", "Chorizo & Egg", "Sausage & Egg", "Bean & Egg"].map((item) => (
+            <span>{item} <span class="text-orange-400 font-bold">$3.00</span></span>
+          ))}
+          <span>Migas <span class="text-orange-400 font-bold">$4.00</span></span>
+          <span>Machacado <span class="text-orange-400 font-bold">$4.50</span></span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-stone-700 mb-16" />
+
+    <!-- Libres de Carne -->
+    <div>
+      <h3 class="text-2xl font-bold mb-1">Libres de Carne</h3>
+      <p class="text-stone-400 text-sm mb-2">Meat to-go — perfect for take-out</p>
+      <p class="text-stone-500 text-xs mb-6">Add a Special for +$3.00: includes 1 dozen tortillas, 8oz salsa, 8oz pico</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
+        {toGo.map((item) => (
+          <div class="bg-stone-800 rounded-xl p-4 text-center">
+            <p class="font-bold text-stone-100 text-sm">{item.name}</p>
+            <p class="text-orange-400 font-bold text-lg mt-1">{item.price}</p>
+          </div>
+        ))}
+      </div>
+      <div class="bg-stone-800 rounded-2xl p-6">
+        <p class="text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">Sides &amp; Extras (To-Go)</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-6 text-sm">
+          <div class="flex justify-between"><span class="text-stone-300">Beans (8/16/32oz)</span><span class="text-orange-400 font-bold">$3/$6/$12</span></div>
+          <div class="flex justify-between"><span class="text-stone-300">Rice (8/16/32oz)</span><span class="text-orange-400 font-bold">$3/$6/$12</span></div>
+          <div class="flex justify-between"><span class="text-stone-300">Salsa (8/16/32oz)</span><span class="text-orange-400 font-bold">$3/$6/$12</span></div>
+          <div class="flex justify-between"><span class="text-stone-300">Salsa Ranchera (8/16/32oz)</span><span class="text-orange-400 font-bold">$4/$8/$16</span></div>
+          <div class="flex justify-between"><span class="text-stone-300">Queso w/ chips (8/16/32oz)</span><span class="text-orange-400 font-bold">$5.25/$10.50/$21</span></div>
+          <div class="flex justify-between"><span class="text-stone-300">Guacamole (8/16/32oz)</span><span class="text-orange-400 font-bold">$4.75/$9.50/$19</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
